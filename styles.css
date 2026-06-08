@@ -48,12 +48,26 @@ ul { list-style: none; }
 /* ===== Background glow ===== */
 .bg-glow {
   position: fixed;
-  inset: 0;
+  inset: -15%;
   z-index: -1;
   background:
     radial-gradient(600px 400px at 78% -5%, rgba(108, 140, 255, 0.16), transparent 60%),
     radial-gradient(700px 500px at 10% 8%, rgba(56, 232, 197, 0.12), transparent 60%),
     linear-gradient(180deg, var(--bg), var(--bg-soft));
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+/* ===== Scroll progress bar ===== */
+.scroll-progress {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  height: 3px;
+  width: 0;
+  z-index: 60;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px rgba(56, 232, 197, 0.5);
+  transition: width .1s linear;
 }
 
 /* ===== Navbar ===== */
@@ -192,10 +206,12 @@ ul { list-style: none; }
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 700;
   margin-top: 8px;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  background: linear-gradient(120deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: shimmer 6s linear infinite;
 }
 .hero__tagline {
   margin-top: 22px;
@@ -235,6 +251,7 @@ ul { list-style: none; }
   overflow: hidden;
   background: linear-gradient(135deg, var(--accent-soft), rgba(108, 140, 255, 0.14));
   border: 2px solid var(--border-strong);
+  animation: float 5s ease-in-out infinite;
 }
 .avatar__img {
   position: absolute;
@@ -420,9 +437,75 @@ a.contact__card:hover { border-color: var(--accent); transform: translateY(-3px)
 .footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 40px; }
 .footer__inner { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--text-faint); font-size: 14px; }
 
-/* ===== Reveal animation ===== */
+/* ===== Keyframes ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes shimmer { to { background-position: 220% 0; } }
+@keyframes drift {
+  from { transform: translate(-1.5%, -1%) scale(1.02); }
+  to   { transform: translate(1.5%, 1%) scale(1.08); }
+}
+
+/* ===== Hero entrance (staggered) ===== */
+.hero__eyebrow, .hero__name, .hero__role, .hero__tagline, .hero__cta, .hero__socials {
+  opacity: 0;
+  animation: fadeUp .7s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+.hero__eyebrow { animation-delay: .05s; }
+.hero__name    { animation-delay: .15s; }
+.hero__role    { animation-delay: .25s; }
+.hero__tagline { animation-delay: .35s; }
+.hero__cta     { animation-delay: .45s; }
+.hero__socials { animation-delay: .55s; }
+
+/* ===== Section + card reveal on scroll ===== */
 .section, .hero__card { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 .section.is-visible, .hero__card.is-visible { opacity: 1; transform: none; }
+
+.skill-card, .edu-card, .timeline__item, .contact__card, .project {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.section.is-visible .skill-card,
+.section.is-visible .edu-card,
+.section.is-visible .timeline__item,
+.section.is-visible .contact__card,
+.section.is-visible .project { opacity: 1; transform: none; }
+
+.section.is-visible :is(.skill-card, .edu-card, .timeline__item, .contact__card):nth-child(1) { transition-delay: .08s; }
+.section.is-visible :is(.skill-card, .edu-card, .timeline__item, .contact__card):nth-child(2) { transition-delay: .18s; }
+.section.is-visible :is(.skill-card, .edu-card, .timeline__item, .contact__card):nth-child(3) { transition-delay: .28s; }
+.section.is-visible :is(.skill-card, .edu-card, .timeline__item, .contact__card):nth-child(4) { transition-delay: .38s; }
+
+/* ===== Hover polish ===== */
+.btn--primary { position: relative; overflow: hidden; }
+.btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+}
+.btn--primary:hover::after { transform: translateX(120%); }
+
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -4px;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: inline-start;
+  transition: transform .25s ease;
+}
+.nav__links a:hover::after { transform: scaleX(1); }
+
+.chips li { transition: transform .2s ease, border-color .2s ease, color .2s ease; }
+.chips li:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--text); }
 
 /* ===== Responsive ===== */
 @media (max-width: 880px) {
@@ -455,6 +538,10 @@ a.contact__card:hover { border-color: var(--accent); transform: translateY(-3px)
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto; }
-  .section, .hero__card { opacity: 1; transform: none; transition: none; }
+  *, *::after, *::before { animation: none !important; scroll-behavior: auto; }
+  .section, .hero__card,
+  .hero__eyebrow, .hero__name, .hero__role, .hero__tagline, .hero__cta, .hero__socials,
+  .skill-card, .edu-card, .timeline__item, .contact__card, .project {
+    opacity: 1; transform: none; transition: none;
+  }
 }

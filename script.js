@@ -39,9 +39,14 @@ navLinks.querySelectorAll('a').forEach((a) =>
   a.addEventListener('click', () => navLinks.classList.remove('open'))
 );
 
-// ===== Navbar shadow on scroll =====
+// ===== Navbar shadow + scroll progress =====
 const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+const progress = document.getElementById('scrollProgress');
+const onScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 8);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : '0';
+};
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
