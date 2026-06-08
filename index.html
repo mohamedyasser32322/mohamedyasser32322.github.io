@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Yasser — .NET Developer</title>
+  <meta name="description" data-en="Mohamed Yasser — Self-taught .NET / Full-Stack Developer based in Jeddah." data-ar="محمد ياسر — مطوّر .NET / Full-Stack بالتعلّم الذاتي، مقيم في جدة." content="Mohamed Yasser — Self-taught .NET / Full-Stack Developer based in Jeddah." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Background glow -->
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#hero" class="brand">
+        <span class="brand__mark">MY</span>
+        <span class="brand__name" data-en="Mohamed Yasser" data-ar="محمد ياسر">Mohamed Yasser</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" data-en="About" data-ar="عنّي">About</a>
+        <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+        <a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a>
+        <a href="#experience" data-en="Experience" data-ar="الخبرات">Experience</a>
+        <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
+        <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span data-lang-label="en">عربي</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow" data-en="Hello, I'm" data-ar="أهلاً، أنا">Hello, I'm</p>
+          <h1 class="hero__name" data-en="Mohamed Yasser" data-ar="محمد ياسر">Mohamed Yasser</h1>
+          <h2 class="hero__role">
+            <span data-en="Full-Stack .NET Developer" data-ar="مطوّر Full-Stack .NET">Full-Stack .NET Developer</span>
+          </h2>
+          <p class="hero__tagline" data-en="I build complete web applications with ASP.NET." data-ar="أبني تطبيقات ويب متكاملة باستخدام ASP.NET.">
+            I build complete web applications with ASP.NET.
+          </p>
+
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary" data-en="View my work" data-ar="استعرض أعمالي">View my work</a>
+            <a href="#contact" class="btn btn--ghost" data-en="Get in touch" data-ar="تواصل معي">Get in touch</a>
+          </div>
+
+          <div class="hero__socials">
+            <a href="https://www.linkedin.com/in/mohamed-yasser-a94b5b287/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18V10H5.67v8h2.67zM7 8.84a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zM18.34 18v-4.39c0-2.35-1.26-3.44-2.93-3.44-1.35 0-1.96.74-2.3 1.26V10h-2.67v8h2.67v-4.47c0-.24.02-.47.09-.64.19-.47.62-.96 1.34-.96.95 0 1.33.72 1.33 1.78V18h2.67z"/></svg>
+            </a>
+            <a href="https://wa.me/966544607585" target="_blank" rel="noopener" aria-label="WhatsApp" class="social">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+            </a>
+            <a href="mailto:midoy3727@gmail.com" aria-label="Email" class="social">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>
+            </a>
+            <a href="https://github.com/mohamedyasser32322" target="_blank" rel="noopener" aria-label="GitHub" class="social">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="avatar">
+            <img class="avatar__img" src="assets/me.jpg" alt="Mohamed Yasser" onerror="this.remove()" />
+            <span class="avatar__initials">MY</span>
+          </div>
+          <ul class="hero__facts">
+            <li><span class="dot"></span><span data-en="Based in Jeddah, KSA" data-ar="مقيم في جدة، السعودية">Based in Jeddah, KSA</span></li>
+            <li><span class="dot"></span><span data-en="C# · ASP.NET · JavaScript" data-ar="C# · ASP.NET · JavaScript">C# · ASP.NET · JavaScript</span></li>
+            <li><span class="dot"></span><span data-en="Open to opportunities" data-ar="متاح لفرص العمل">Open to opportunities</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section__kicker" data-en="01 — About" data-ar="٠١ — عنّي">01 — About</p>
+        <h2 class="section__title" data-en="A developer with an operator's mindset" data-ar="مطوّر بعقلية مدير تشغيل">A developer with an operator's mindset</h2>
+        <div class="about">
+          <p data-en="Self-taught .NET developer based in Jeddah. I build complete web applications with C#, ASP.NET, and modern front-end tools." data-ar="مطوّر .NET من جدة، تعلّمت بنفسي. أبني تطبيقات ويب متكاملة بـ C# و ASP.NET وأدوات الواجهة الحديثة.">
+            Self-taught .NET developer based in Jeddah. I build complete web applications with C#, ASP.NET, and modern front-end tools.
+          </p>
+          <p data-en="My earlier career managing electric-scooter fleet operations gave me a practical eye for real workflows — which I bring to every product I build." data-ar="خلفيتي في إدارة تشغيل أساطيل الإسكوترات الكهربائية منحتني نظرة عمليّة لمسارات العمل الواقعية، أوظّفها في كل منتج أبنيه.">
+            My earlier career managing electric-scooter fleet operations gave me a practical eye for real workflows — which I bring to every product I build.
+          </p>
+          <p data-en="Currently building Asas — a multi-role real-estate platform — and advancing my JavaScript skills." data-ar="أطوّر حالياً منصة «أساس» العقارية متعددة الأدوار، وأعمّق مهاراتي في JavaScript.">
+            Currently building Asas — a multi-role real-estate platform — and advancing my JavaScript skills.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="section__kicker" data-en="02 — Skills" data-ar="٠٢ — المهارات">02 — Skills</p>
+        <h2 class="section__title" data-en="What I work with" data-ar="أدواتي وتقنياتي">What I work with</h2>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3 data-en="Backend" data-ar="الـ Backend">Backend</h3>
+            <ul class="chips">
+              <li>C#</li>
+              <li>ASP.NET Core Web API</li>
+              <li>ASP.NET MVC</li>
+              <li>REST APIs</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3 data-en="Frontend" data-ar="الـ Frontend">Frontend</h3>
+            <ul class="chips">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+              <li><span data-en="JavaScript (learning)" data-ar="JavaScript (قيد التعلّم)">JavaScript (learning)</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3 data-en="Database &amp; Tools" data-ar="قواعد البيانات والأدوات">Database &amp; Tools</h3>
+            <ul class="chips">
+              <li>SQL Server</li>
+              <li>Entity Framework</li>
+              <li>Git</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <h3 data-en="Beyond code" data-ar="مهارات إضافية">Beyond code</h3>
+            <ul class="chips">
+              <li><span data-en="Operations management" data-ar="إدارة التشغيل">Operations management</span></li>
+              <li><span data-en="Team coordination" data-ar="تنسيق الفرق">Team coordination</span></li>
+              <li><span data-en="Arabic &amp; English" data-ar="عربي وإنجليزي">Arabic &amp; English</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section__kicker" data-en="03 — Projects" data-ar="٠٣ — المشاريع">03 — Projects</p>
+        <h2 class="section__title" data-en="Featured work" data-ar="مشاريع مختارة">Featured work</h2>
+
+        <article class="project">
+          <div class="project__media">
+            <div class="project__placeholder">
+              <span data-en="Asas preview — screenshots / demo coming soon" data-ar="معاينة أساس — صور / ديمو قريباً">Asas preview — screenshots / demo coming soon</span>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__head">
+              <h3 data-en="Asas — Real-Estate Platform" data-ar="أساس — منصة عقارية">Asas — Real-Estate Platform</h3>
+              <span class="badge" data-en="In development" data-ar="قيد التطوير">In development</span>
+            </div>
+            <p data-en="A multi-role real-estate platform for managing projects, units, buyers, bookings and sell-requests — each role (Admin, Booking Manager, Buyer, Site Engineer) gets its own dashboard." data-ar="منصة عقارية متعددة الأدوار لإدارة المشاريع والوحدات والمشترين والحجوزات وطلبات البيع — لكل دور (مدير، مدير حجوزات، مشتري، مهندس موقع) لوحته الخاصة.">
+              A multi-role real-estate platform for managing projects, units, buyers, bookings and sell-requests — each role (Admin, Booking Manager, Buyer, Site Engineer) gets its own dashboard.
+            </p>
+            <ul class="project__features">
+              <li data-en="Role-based dashboards &amp; permissions" data-ar="لوحات تحكم وصلاحيات حسب الدور">Role-based dashboards &amp; permissions</li>
+              <li data-en="Real-time notifications &amp; live updates" data-ar="إشعارات فورية وتحديثات لحظية">Real-time notifications &amp; live updates</li>
+              <li data-en="Theming &amp; dark / light modes" data-ar="نظام ثيمات ووضع داكن / فاتح">Theming &amp; dark / light modes</li>
+            </ul>
+            <ul class="chips chips--accent">
+              <li>ASP.NET Core Web API</li>
+              <li>C#</li>
+              <li>JavaScript</li>
+              <li>SQL Server</li>
+            </ul>
+            <div class="project__links">
+              <a href="#contact" class="btn btn--small btn--primary" data-en="Request a demo" data-ar="اطلب معاينة">Request a demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="section__kicker" data-en="04 — Experience" data-ar="٠٤ — الخبرات">04 — Experience</p>
+        <h2 class="section__title" data-en="Where I've worked" data-ar="مسيرتي العملية">Where I've worked</h2>
+
+        <div class="timeline">
+          <article class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 data-en="Operations Management — Electric Scooters" data-ar="إدارة التشغيل — الإسكوترات الكهربائية">Operations Management — Electric Scooters</h3>
+                <span class="timeline__meta" data-en="2022 — Present" data-ar="2022 — حتى الآن">2022 — Present</span>
+              </div>
+              <p data-en="Managed daily operations for an electric-scooter fleet: field teams, logistics, deployment and maintenance cycles." data-ar="إدارة العمليات اليومية لأسطول إسكوترات كهربائية: الفرق الميدانية واللوجستيات ودورات النشر والصيانة.">
+                Managed daily operations for an electric-scooter fleet: field teams, logistics, deployment and maintenance cycles.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <div class="timeline__head">
+                <h3 data-en="Self-taught Software Development" data-ar="تطوير البرمجيات بالتعلّم الذاتي">Self-taught Software Development</h3>
+                <span class="timeline__meta" data-en="Jan 2025 — Present" data-ar="يناير 2025 — حتى الآن">Jan 2025 — Present</span>
+              </div>
+              <p data-en="Self-studied C# and ASP.NET; built APIs, MVC and full-stack web apps. Now advancing front-end skills via Jonas Schmedtmann's JavaScript course." data-ar="تعلّمت C# و ASP.NET ذاتياً، وبنيت APIs وتطبيقات MVC وتطبيقات ويب متكاملة. وأطوّر حالياً مهارات الواجهات عبر دورة جوناس شميدتمان.">
+                Self-studied C# and ASP.NET; built APIs, MVC and full-stack web apps. Now advancing front-end skills via Jonas Schmedtmann's JavaScript course.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <div class="container">
+        <p class="section__kicker" data-en="05 — Education" data-ar="٠٥ — التعليم">05 — Education</p>
+        <h2 class="section__title" data-en="Education &amp; learning" data-ar="التعليم والتعلّم">Education &amp; learning</h2>
+
+        <div class="edu-grid">
+          <article class="edu-card">
+            <h3 data-en="Bachelor of Law" data-ar="بكالوريوس الحقوق">Bachelor of Law</h3>
+            <p class="edu-card__org" data-en="Helwan University · 2020" data-ar="جامعة حلوان · ٢٠٢٠">Helwan University · 2020</p>
+            <p data-en="A strong foundation in analytical thinking and attention to detail." data-ar="أساس قوي في التفكير التحليلي والاهتمام بالتفاصيل.">A strong foundation in analytical thinking and attention to detail.</p>
+          </article>
+
+          <article class="edu-card">
+            <h3 data-en="C# &amp; ASP.NET — Self-study" data-ar="C# و ASP.NET — تعلّم ذاتي">C# &amp; ASP.NET — Self-study</h3>
+            <p class="edu-card__org" data-en="Self-directed" data-ar="تعلّم ذاتي">Self-directed</p>
+            <p data-en="Backend, Web API, MVC and front-end fundamentals through hands-on projects." data-ar="الـ Backend و Web API و MVC وأساسيات الواجهات عبر مشاريع عملية.">Backend, Web API, MVC and front-end fundamentals through hands-on projects.</p>
+          </article>
+
+          <article class="edu-card">
+            <h3 data-en="The Complete JavaScript Course" data-ar="دورة JavaScript الشاملة">The Complete JavaScript Course</h3>
+            <p class="edu-card__org" data-en="Jonas Schmedtmann · In progress" data-ar="جوناس شميدتمان · قيد التقدّم">Jonas Schmedtmann · In progress</p>
+            <p data-en="Modern JavaScript: DOM, ES6+, async, and clean code." data-ar="JavaScript الحديثة: DOM و ES6+ والبرمجة غير المتزامنة والكود النظيف.">Modern JavaScript: DOM, ES6+, async, and clean code.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="section__kicker" data-en="06 — Contact" data-ar="٠٦ — تواصل">06 — Contact</p>
+        <h2 class="section__title" data-en="Let's work together" data-ar="لنعمل معاً">Let's work together</h2>
+        <p class="contact__lead" data-en="Have a role or a project in mind? I'd be glad to hear about it." data-ar="هل لديك وظيفة أو مشروع في بالك؟ يسعدني أن أسمع عنه.">Have a role or a project in mind? I'd be glad to hear about it.</p>
+
+        <div class="contact">
+          <div class="contact__cards">
+            <a href="mailto:midoy3727@gmail.com" class="contact__card">
+              <span class="contact__label" data-en="Email" data-ar="الإيميل">Email</span>
+              <span class="contact__value">midoy3727@gmail.com</span>
+            </a>
+            <a href="https://wa.me/966544607585" target="_blank" rel="noopener" class="contact__card">
+              <span class="contact__label" data-en="WhatsApp / Phone" data-ar="واتساب / هاتف">WhatsApp / Phone</span>
+              <span class="contact__value" dir="ltr">+966 54 460 7585</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mohamed-yasser-a94b5b287/" target="_blank" rel="noopener" class="contact__card">
+              <span class="contact__label" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</span>
+              <span class="contact__value">mohamed-yasser</span>
+            </a>
+            <a href="https://github.com/mohamedyasser32322" target="_blank" rel="noopener" class="contact__card">
+              <span class="contact__label" data-en="GitHub" data-ar="جيت هَب">GitHub</span>
+              <span class="contact__value">mohamedyasser32322</span>
+            </a>
+            <div class="contact__card contact__card--static">
+              <span class="contact__label" data-en="Location" data-ar="الموقع">Location</span>
+              <span class="contact__value" data-en="Jeddah, Saudi Arabia" data-ar="جدة، السعودية">Jeddah, Saudi Arabia</span>
+            </div>
+          </div>
+
+          <form class="contact__form" id="contactForm">
+            <label>
+              <span data-en="Your name" data-ar="اسمك">Your name</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span data-en="Your email" data-ar="إيميلك">Your email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span data-en="Message" data-ar="رسالتك">Message</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="btn btn--primary" data-en="Send message" data-ar="إرسال الرسالة">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span data-en="© 2026 Mohamed Yasser" data-ar="© ٢٠٢٦ محمد ياسر">© 2026 Mohamed Yasser</span>
+      <span class="footer__built" data-en="Built with HTML, CSS &amp; JavaScript" data-ar="مبني بـ HTML و CSS و JavaScript">Built with HTML, CSS &amp; JavaScript</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
