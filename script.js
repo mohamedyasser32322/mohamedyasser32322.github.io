@@ -1,3 +1,43 @@
+// ===== Intro: ball drops, bounces, bursts, then content reveals =====
+(function () {
+  const intro = document.getElementById('intro');
+  if (!intro) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { intro.remove(); return; }
+
+  document.body.classList.add('intro-lock');
+  const stage = intro.querySelector('.intro__stage');
+
+  // After the ball finishes bouncing → burst
+  setTimeout(() => {
+    intro.classList.add('boom');
+
+    const N = 16;
+    for (let i = 0; i < N; i++) {
+      const p = document.createElement('span');
+      p.className = 'intro__particle';
+      const angle = (Math.PI * 2 * i) / N + (Math.random() - 0.5) * 0.5;
+      const dist = 120 + Math.random() * 160;
+      p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+      p.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+      const size = 6 + Math.random() * 8;
+      p.style.width = p.style.height = size + 'px';
+      if (i % 2) p.style.background = 'var(--accent-2)';
+      p.style.animationDelay = (Math.random() * 0.05) + 's';
+      stage.appendChild(p);
+    }
+
+    // Reveal the page
+    setTimeout(() => {
+      intro.classList.add('done');
+      document.body.classList.remove('intro-lock');
+      document.body.classList.add('intro-done');
+      setTimeout(() => intro.remove(), 700);
+    }, 600);
+  }, 1560);
+})();
+
 // ===== Language toggle (EN <-> AR with RTL) =====
 const html = document.documentElement;
 const langToggle = document.getElementById('langToggle');

@@ -605,4 +605,79 @@ a.contact__card:hover { border-color: var(--accent); transform: translateY(-3px)
   .skill-card, .edu-card, .timeline__item, .contact__card, .project {
     opacity: 1; transform: none; transition: none;
   }
+  #intro { display: none !important; }
 }
+
+/* ===== Intro: bouncing ball -> burst -> reveal ===== */
+body.intro-lock { overflow: hidden; }
+
+#intro {
+  position: fixed; inset: 0; z-index: 100000;
+  background: var(--bg);
+  overflow: hidden;
+  transition: opacity .6s ease;
+  /* Fallback: if JS never runs, the overlay still gets out of the way */
+  animation: intro-failsafe .01s linear 3.2s forwards;
+}
+@keyframes intro-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+#intro.done { opacity: 0; pointer-events: none; }
+.intro__stage { position: absolute; inset: 0; }
+
+.intro__ball {
+  position: absolute; left: 50%; top: -15%;
+  width: 46px; height: 46px; margin-left: -23px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #b9f7ec, var(--accent) 48%, var(--accent-2));
+  box-shadow: 0 0 22px rgba(56, 232, 197, 0.65), 0 0 64px rgba(108, 140, 255, 0.4);
+  will-change: top, transform;
+  animation: intro-drop 1.55s forwards;
+}
+@keyframes intro-drop {
+  0%   { top: -15%; animation-timing-function: cubic-bezier(.4, 0, .9, .45); }
+  26%  { top: 62%;  animation-timing-function: cubic-bezier(.1, .5, .5, 1); }
+  44%  { top: 33%;  animation-timing-function: cubic-bezier(.4, 0, .9, .45); }
+  60%  { top: 62%;  animation-timing-function: cubic-bezier(.1, .5, .5, 1); }
+  73%  { top: 47%;  animation-timing-function: cubic-bezier(.4, 0, .9, .45); }
+  84%  { top: 62%;  animation-timing-function: cubic-bezier(.1, .5, .5, 1); }
+  92%  { top: 56%;  animation-timing-function: cubic-bezier(.4, 0, .9, .45); }
+  100% { top: 62%; }
+}
+
+#intro.boom .intro__ball { animation: intro-ball-pop .28s ease-out forwards; }
+@keyframes intro-ball-pop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.5); filter: brightness(1.5); }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+.intro__ring {
+  position: absolute; left: 50%; top: 62%;
+  width: 54px; height: 54px; margin: -27px 0 0 -27px;
+  border-radius: 50%; border: 3px solid var(--accent);
+  opacity: 0; transform: scale(.2);
+}
+#intro.boom .intro__ring { animation: intro-ring .7s ease-out forwards; }
+@keyframes intro-ring {
+  0%   { transform: scale(.2); opacity: .85; }
+  100% { transform: scale(13); opacity: 0; }
+}
+
+.intro__particle {
+  position: absolute; left: 50%; top: 62%;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+#intro.boom .intro__particle { animation: intro-particle .85s cubic-bezier(.2, .6, .3, 1) forwards; }
+@keyframes intro-particle {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(.25); opacity: 0; }
+}
+
+/* Content entrance once the intro clears */
+@keyframes intro-hero-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+body.intro-done .hero__inner { animation: intro-hero-rise .7s .05s ease both; }
