@@ -48,29 +48,34 @@
   }
 
   function drawBall(x, y, sq) {
-    const g = ctx.createRadialGradient(x, y, 0, x, y, R * 3.4);
-    g.addColorStop(0, 'rgba(56,232,197,0.55)');
-    g.addColorStop(0.5, 'rgba(108,140,255,0.16)');
+    const g = ctx.createRadialGradient(x, y, 0, x, y, R * 2.4);
+    g.addColorStop(0, 'rgba(56,232,197,0.30)');
+    g.addColorStop(0.5, 'rgba(108,140,255,0.07)');
     g.addColorStop(1, 'rgba(108,140,255,0)');
     ctx.fillStyle = g;
-    ctx.beginPath(); ctx.arc(x, y, R * 3.4, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x, y, R * 2.4, 0, Math.PI * 2); ctx.fill();
     ctx.save();
     ctx.translate(x, y); ctx.scale(1 + sq * 0.3, 1 - sq * 0.35);
     const b = ctx.createRadialGradient(-R * 0.3, -R * 0.3, 0, 0, 0, R);
-    b.addColorStop(0, '#dffef8'); b.addColorStop(0.5, ACCENT); b.addColorStop(1, ACCENT2);
+    b.addColorStop(0, '#cdf7ee'); b.addColorStop(0.5, ACCENT); b.addColorStop(1, ACCENT2);
     ctx.fillStyle = b;
     ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); ctx.fill();
     ctx.restore();
   }
 
-  function finish() {
+  let revealed = false;
+  function reveal() {
+    if (revealed) return; revealed = true;
+    intro.classList.add('done');                  // overlay starts fading
+    document.body.classList.remove('intro-lock');
+    document.body.classList.add('intro-done');     // content staggers in
+    setTimeout(teardown, 750);                     // particles keep flying through the fade
+  }
+  function teardown() {
     if (done) return; done = true;
     cancelAnimationFrame(raf);
     window.removeEventListener('resize', resize);
-    intro.classList.add('done');
-    document.body.classList.remove('intro-lock');
-    document.body.classList.add('intro-done');
-    setTimeout(() => intro.remove(), 700);
+    intro.remove();
   }
 
   function frame(now) {
@@ -78,7 +83,7 @@
     const dt = Math.min(0.032, (now - last) / 1000); last = now;
     try {
       ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(10,11,16,0.30)';
+      ctx.fillStyle = 'rgba(10,11,16,0.42)';
       ctx.fillRect(0, 0, W, H);
 
       let sx = 0, sy = 0;
@@ -128,17 +133,17 @@
       ctx.globalAlpha = 1;
 
       if (flash > 0.02) {
-        ctx.globalAlpha = flash * 0.75; ctx.fillStyle = '#bdfff2';
-        ctx.fillRect(-60, -60, W + 120, H + 120); ctx.globalAlpha = 1; flash *= 0.8;
+        ctx.globalAlpha = flash * 0.5; ctx.fillStyle = '#bdfff2';
+        ctx.fillRect(-60, -60, W + 120, H + 120); ctx.globalAlpha = 1; flash *= 0.78;
       }
 
       ctx.restore();
 
-      if (phase === 'burst' && now - burstAt > 1000 && particles.length < 8) finish();
-    } catch (e) { finish(); }
+      if (phase === 'burst' && now - burstAt > 380) reveal();
+    } catch (e) { reveal(); }
   }
 
-  setTimeout(() => { if (!done) finish(); }, 5000); // hard safety
+  setTimeout(reveal, 5000); // hard safety
   raf = requestAnimationFrame((t) => { last = t; frame(t); });
 })();
 
